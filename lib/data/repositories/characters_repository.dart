@@ -2,15 +2,23 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:test_mult/domain/entities/character.dart';
 
+import '../../application/services/dio_client.dart';
+
 class CharacterRepository {
   final Dio dio;
-  final String baseUrl;
 
-  CharacterRepository({required this.dio, required this.baseUrl});
+  CharacterRepository({required DioSettings dioClient}) : dio = dioClient.dio;
 
   Future<CharactersMult> getCharacter() async {
-    final response = await dio.get('character/');
+    try {
+      final Response response = await dio.get('character/');
 
-    return CharactersMult.fromJson(response.data);
+      print('Response data: ${response.data}');
+
+      return CharactersMult.fromJson(response.data);
+    } catch (error) {
+      print('$error');
+      throw error;
+    }
   }
 }

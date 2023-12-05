@@ -5,28 +5,28 @@ import '../../../domain/entities/character.dart';
 
 part 'character_controller.g.dart';
 
-class CharacterController = CharacterControllerBase
-    with _$CharacterController;
+class CharacterController = _CharacterController with _$CharacterController;
 
-abstract class CharacterControllerBase with Store {
-  final GetCharactersMultUsecase _getCharactersUsecase;
-
-  CharacterControllerBase(this._getCharactersUsecase);
+abstract class _CharacterController with Store {
+  @observable
+  CharactersMult? character;
 
   @observable
   bool isLoading = false;
 
-  @observable
-  late CharactersMult character;
+  final GetCharactersMultUsecase getCharactersMultUsecase;
 
-  @observable
-  CharactersMult? observableCharacter;
-
+  _CharacterController(this.getCharactersMultUsecase);
 
   @action
-  Future<void> getCharacters() async {
+  Future<void> getCharacter() async {
     isLoading = true;
-    character = await _getCharactersUsecase();
-    isLoading = false;
+    try {
+      character = await getCharactersMultUsecase.call();
+    } catch (error) {
+      print('$error');
+    } finally {
+      isLoading = false;
+    }
   }
 }

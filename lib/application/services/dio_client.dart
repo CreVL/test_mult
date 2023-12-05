@@ -27,7 +27,7 @@ class DioSettings {
     final LogInterceptor logInterceptor =
         LogInterceptor(requestBody: true, responseBody: true);
 
-    final QueuedInterceptorsWrapper headerinterceptors =
+    final QueuedInterceptorsWrapper headerInterceptors =
         QueuedInterceptorsWrapper(
       onRequest: (RequestOptions options, RequestInterceptorHandler handler) =>
           handler.next(options),
@@ -37,6 +37,6 @@ class DioSettings {
       onResponse: (Response response, ResponseInterceptorHandler handler) =>
           handler.next(response),
     );
-    interceptors.addAll([if (kDebugMode) logInterceptor, headerinterceptors]);
+    interceptors.addAll([if (kDebugMode) logInterceptor, headerInterceptors]);
   }
 }

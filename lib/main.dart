@@ -4,20 +4,19 @@ import 'package:test_mult/ui/pages/character_page/character_page.dart';
 
 import 'application/services/dio_client.dart';
 import 'data/repositories/characters_repository.dart';
+import 'get_it_initializer.dart';
 
 
 void main() {
-  final getIt = GetIt.instance;
-
-  getIt.registerSingleton<DioSettings>(DioSettings());
-
-  getIt.registerLazySingleton<CharacterRepository>(() => CharacterRepository(
-    dio: getIt<DioSettings>().dio,
-    baseUrl: 'https://rickandmortyapi.com/api/',
-  ));
-
+  appStart();
   runApp(const MyApp());
 }
+
+void appStart() async {
+  GetItInitializer.setUp();
+  WidgetsFlutterBinding.ensureInitialized();
+}
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

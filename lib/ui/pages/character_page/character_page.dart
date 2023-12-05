@@ -8,8 +8,6 @@ import 'package:test_mult/data/repositories/characters_repository.dart';
 import '../../../domain/entities/character.dart';
 import '../../state_managment/character_controller/character_controller.dart';
 
-
-
 class CharacterPage extends HookWidget {
   const CharacterPage({Key? key, required this.title}) : super(key: key);
 
@@ -18,7 +16,7 @@ class CharacterPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final controller = useMemoized(
-          () => CharacterController(
+      () => CharacterController(
         GetCharactersMultUsecase(
           GetIt.I<CharacterRepository>(),
         ),
@@ -37,7 +35,7 @@ class CharacterPage extends HookWidget {
             return Center(child: CircularProgressIndicator());
           } else {
             return ListView.builder(
-              itemCount: 1,
+              itemCount: 11,
               itemBuilder: (context, index) {
                 return CharacterListTile(character: controller.character);
               },
@@ -52,20 +50,15 @@ class CharacterPage extends HookWidget {
 class CharacterListTile extends StatelessWidget {
   CharacterListTile({Key? key, required this.character}) : super(key: key);
 
-  final CharactersMult character;
+  final CharactersMult? character;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
     return ListTile(
-      leading: Image.network(
-        '${character.image}',
-        width: 60,
-        height: 60,
-      ),
       title: Text(
-        character.status ?? '',
+        '${character?.name}',
         style: theme.textTheme.bodyMedium,
       ),
       trailing: const Icon(

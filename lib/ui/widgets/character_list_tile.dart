@@ -15,11 +15,6 @@ class CharacterListTile extends StatelessWidget {
     final theme = Theme.of(context);
 
     return ListTile(
-      leading: Image.asset(
-        '${characters.image}',
-        width: 60,
-        height: 60,
-      ),
       title: Text(
         characters.status ?? '',
         style: theme.textTheme.bodyMedium,
