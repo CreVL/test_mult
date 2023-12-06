@@ -15,7 +15,7 @@ class CharacterListTile extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       child: ListTile(
         title: Text(
-          character?.name ?? 'авыавы',
+          character?.name ?? '',
           style: theme.textTheme.bodyMedium,
         ),
         subtitle: Column(
