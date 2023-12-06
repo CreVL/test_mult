@@ -16,13 +16,16 @@ class CharacterPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final controller = useMemoized(
-      () => CharacterController(
+          () => CharacterController(
         GetCharactersMultUsecase(
           GetIt.I<CharacterRepository>(),
         ),
       ),
     );
 
+    useEffect(() {
+      controller.getCharacter();
+    }, []);
 
     return Scaffold(
       appBar: AppBar(
@@ -32,12 +35,18 @@ class CharacterPage extends HookWidget {
       body: Observer(
         builder: (_) {
           if (controller.isLoading) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else {
-            return ListView.builder(
-              itemCount: 11,
+            return ListView.separated(
+              itemCount: controller.character?.length ?? 0,
               itemBuilder: (context, index) {
-                return CharacterListTile(character: controller.character);
+                final character = controller.character?[index];
+                return CharacterListTile(
+                  character: character,
+                );
+              },
+              separatorBuilder: (context, index) {
+                return const Divider();
               },
             );
           }
@@ -56,13 +65,37 @@ class CharacterListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return ListTile(
-      title: Text(
-        '${character?.name}',
-        style: theme.textTheme.bodyMedium,
-      ),
-      trailing: const Icon(
-        Icons.arrow_forward_ios,
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: ListTile(
+        title: Text(
+          character?.name ?? 'авыавы',
+          style: theme.textTheme.bodyMedium,
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              character?.status ?? "",
+              style: theme.textTheme.bodyMedium,
+            ),
+            Text(
+              character?.species ?? "",
+              style: theme.textTheme.bodyMedium,
+            ),
+            Text(
+              character?.gender ?? "",
+              style: theme.textTheme.bodyMedium,
+            ),
+          ],
+        ),
+        leading: CircleAvatar(
+          radius: 30,
+          backgroundImage: NetworkImage(character?.image ?? ''),
+        ),
+        trailing: const Icon(
+          Icons.arrow_forward_ios,
+        ),
       ),
     );
   }

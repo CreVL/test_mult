@@ -91,7 +91,7 @@ class CharactersMult {
     location =
     json['location'] != null ? Origin.fromJson(json['location']) : null;
     image = json['image'];
-    episode = (json['episode'] as List<dynamic>?)?.cast<String>() ?? [];
+    episode = json['episode'].cast<String>();
     url = json['url'];
     created = json['created'];
   }

@@ -13,13 +13,13 @@ mixin _$CharacterController on _CharacterController, Store {
       Atom(name: '_CharacterController.character', context: context);
 
   @override
-  CharactersMult? get character {
+  List<CharactersMult>? get character {
     _$characterAtom.reportRead();
     return super.character;
   }
 
   @override
-  set character(CharactersMult? value) {
+  set character(List<CharactersMult>? value) {
     _$characterAtom.reportWrite(value, super.character, () {
       super.character = value;
     });

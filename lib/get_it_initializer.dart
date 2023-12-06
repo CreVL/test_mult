@@ -11,6 +11,10 @@ final _getIt = GetIt.instance;
 
 class GetItInitializer {
   static void setUp() {
-    _getIt.registerSingleton<CharacterRepository>(CharacterRepository(dioClient: DioSettings()));
+    _getIt.registerLazySingleton<Dio>(() => Dio());
+    _getIt.registerLazySingleton<CharacterRepository>(
+            () => CharacterRepository(dioClient: DioSettings()));
+    _getIt.registerLazySingleton<GetCharactersMultUsecase>(
+            () => GetCharactersMultUsecase(_getIt<CharacterRepository>()));
   }
 }

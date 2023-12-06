@@ -6,7 +6,7 @@ class GetCharactersMultUsecase {
 
   const GetCharactersMultUsecase(this._repository);
 
-  Future<CharactersMult> call() {
+  Future<List<CharactersMult>?> call() {
     return _repository.getCharacter();
   }
 }

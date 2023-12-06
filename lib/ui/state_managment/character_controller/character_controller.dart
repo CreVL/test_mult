@@ -8,25 +8,20 @@ part 'character_controller.g.dart';
 class CharacterController = _CharacterController with _$CharacterController;
 
 abstract class _CharacterController with Store {
-  @observable
-  CharactersMult? character;
-
-  @observable
-  bool isLoading = false;
-
   final GetCharactersMultUsecase getCharactersMultUsecase;
 
   _CharacterController(this.getCharactersMultUsecase);
 
+  @observable
+  List<CharactersMult>? character;
+
+  @observable
+  bool isLoading = false;
+
   @action
   Future<void> getCharacter() async {
     isLoading = true;
-    try {
       character = await getCharactersMultUsecase.call();
-    } catch (error) {
-      print('$error');
-    } finally {
       isLoading = false;
-    }
   }
 }

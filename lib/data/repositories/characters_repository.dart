@@ -7,18 +7,22 @@ import '../../application/services/dio_client.dart';
 class CharacterRepository {
   final Dio dio;
 
-  CharacterRepository({required DioSettings dioClient}) : dio = dioClient.dio;
+  CharacterRepository({required DioSettings dioClient})
+      : dio = dioClient.dio;
 
-  Future<CharactersMult> getCharacter() async {
-    try {
+  Future<List<CharactersMult>?> getCharacter() async {
       final Response response = await dio.get('character/');
-
-      print('Response data: ${response.data}');
-
-      return CharactersMult.fromJson(response.data);
-    } catch (error) {
-      print('$error');
-      throw error;
-    }
+      if (response.statusCode == 200) {
+        if (response.data.containsKey('results')) {
+          return (response.data['results'] as List)
+              .map((characterData) =>
+              CharactersMult.fromJson(characterData))
+              .toList();
+        } else {
+          return null;
+        }
+      } else {
+        return null;
+      }
   }
 }
