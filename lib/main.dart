@@ -4,7 +4,7 @@ import 'package:test_mult/ui/pages/character_page/character_page.dart';
 
 import 'application/services/dio_client.dart';
 import 'data/repositories/characters_repository.dart';
-import 'get_it_initializer.dart';
+import 'common/controllers/data/dependecy_injection/get_it_initializer.dart';
 
 
 void main() {
