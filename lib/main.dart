@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:test_mult/ui/pages/character_page/character_page.dart';
-
-import 'application/services/dio_client.dart';
-import 'application/repository/characters_repository.dart';
 import 'common/controllers/data/dependecy_injection/get_it_initializer.dart';
-
 
 void main() {
   appStart();
@@ -17,13 +12,11 @@ void appStart() async {
   WidgetsFlutterBinding.ensureInitialized();
 }
 
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(

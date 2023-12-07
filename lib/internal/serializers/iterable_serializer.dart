@@ -1,4 +1,3 @@
-
 import 'package:test_mult/internal/serializers/serializer.dart';
 
 extension IterableSerializer<K, V> on Serializer<K, V> {

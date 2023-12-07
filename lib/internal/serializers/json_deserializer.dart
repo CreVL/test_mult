@@ -1,5 +1,3 @@
-
-
 import 'deserializer.dart';
 
 abstract class JsonDeserializer<T>

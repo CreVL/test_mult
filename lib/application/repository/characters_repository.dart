@@ -1,5 +1,5 @@
-import '../../domain/entities/characters_mult.dart';
+import '../../domain/entities/characters_data.dart';
 
 abstract class CharacterRepository {
-  Future<List<CharactersMult>?> getCharacters();
+  Future<List<CharactersData>?> getCharacters();
 }

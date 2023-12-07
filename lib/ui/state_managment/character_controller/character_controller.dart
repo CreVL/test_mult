@@ -1,19 +1,19 @@
 import 'package:mobx/mobx.dart';
 import 'package:test_mult/application/usecases/get_character_usecase/get_character_usecase.dart';
 
-import '../../../domain/entities/characters_mult.dart';
+import '../../../domain/entities/characters_data.dart';
 
 part 'character_controller.g.dart';
 
-class CharacterController = _CharacterController with _$CharacterController;
+class CharacterController = CharacterControllerBase with _$CharacterController;
 
-abstract class _CharacterController with Store {
-  final GetCharactersMultUsecase getCharactersMultUsecase;
+abstract class CharacterControllerBase with Store {
+  final GetCharactersDataUsecase getCharactersDataUsecase;
 
-  _CharacterController(this.getCharactersMultUsecase);
+  CharacterControllerBase(this.getCharactersDataUsecase);
 
   @observable
-  List<CharactersMult>? character;
+  List<CharactersData>? character;
 
   @observable
   bool isLoading = false;
@@ -21,7 +21,7 @@ abstract class _CharacterController with Store {
   @action
   Future<void> getCharacter() async {
     isLoading = true;
-      character = await getCharactersMultUsecase.call();
-      isLoading = false;
+    character = await getCharactersDataUsecase.call();
+    isLoading = false;
   }
 }

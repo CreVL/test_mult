@@ -16,8 +16,8 @@ class CharacterPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final controller = useMemoized(
-          () => CharacterController(
-        GetCharactersMultUsecase(
+      () => CharacterController(
+        GetCharactersDataUsecase(
           GetIt.I<CharacterRepository>(),
         ),
       ),
@@ -25,12 +25,13 @@ class CharacterPage extends HookWidget {
 
     useEffect(() {
       controller.getCharacter();
-    }, []);
+      return null;
+    });
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text("Rick and Morty"),
+        title: const Text("Rick and Morty"),
       ),
       body: Observer(
         builder: (_) {

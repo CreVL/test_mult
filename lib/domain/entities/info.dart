@@ -5,5 +5,4 @@ class Info {
   final String? prev;
 
   Info({this.count, this.pages, this.next, this.prev});
-
 }

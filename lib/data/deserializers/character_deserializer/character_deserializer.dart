@@ -1,12 +1,13 @@
 import '../../../domain/entities/character.dart';
-import '../../../domain/entities/characters_mult.dart';
+import '../../../domain/entities/characters_data.dart';
 import '../../../domain/entities/info.dart';
 import '../../../internal/serializers/deserializer.dart';
 import '../../../internal/serializers/json_deserializer.dart';
 
 class CharacterDeserializer implements JsonDeserializer<Character> {
   final Deserializer<Info, Map<String, dynamic>> infoDeserializer;
-  final Deserializer<CharactersMult, Map<String, dynamic>> charactersMultDeserializer;
+  final Deserializer<CharactersData, Map<String, dynamic>>
+      charactersMultDeserializer;
 
   CharacterDeserializer({
     required this.infoDeserializer,
@@ -19,8 +20,8 @@ class CharacterDeserializer implements JsonDeserializer<Character> {
       info: json['info'] != null ? infoDeserializer.call(json['info']) : null,
       results: json['results'] != null
           ? (json['results'] as List<dynamic>)
-          .map((v) => charactersMultDeserializer.call(v))
-          .toList()
+              .map((v) => charactersMultDeserializer.call(v))
+              .toList()
           : null,
     );
   }

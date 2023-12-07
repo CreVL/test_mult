@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:test_mult/data/deserializers/character_deserializer/characters_mult_deserializer.dart';
 import 'package:test_mult/data/deserializers/character_deserializer/origin_deserializer.dart';
@@ -14,13 +13,14 @@ final _getIt = GetIt.instance;
 class GetItInitializer {
   static void setUp() {
     _getIt.registerLazySingleton<CharacterRepository>(
-          () => BackendCharacterRepository(
-        charactersMultDeserializer: CharactersMultDeserializer(originDeserializer: OriginDeserializer()),
+      () => BackendCharacterRepository(
+        charactersDataDeserializer: CharactersDataDeserializer(
+            originDeserializer: OriginDeserializer()),
         dioClient: DioSettings(),
       ),
     );
 
-    _getIt.registerLazySingleton<GetCharactersMultUsecase>(
-        () => GetCharactersMultUsecase(_getIt<CharacterRepository>()));
+    _getIt.registerLazySingleton<GetCharactersDataUsecase>(
+        () => GetCharactersDataUsecase(_getIt<CharacterRepository>()));
   }
 }

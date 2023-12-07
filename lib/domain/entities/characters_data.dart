@@ -1,6 +1,6 @@
 import 'package:test_mult/domain/entities/origin.dart';
 
-class CharactersMult {
+class CharactersData {
   final int? id;
   final String? name;
   final String? status;
@@ -14,17 +14,17 @@ class CharactersMult {
   final String? url;
   final String? created;
 
-  CharactersMult(
+  const CharactersData(
       {this.id,
-        this.name,
-        this.status,
-        this.species,
-        this.type,
-        this.gender,
-        this.origin,
-        this.location,
-        this.image,
-        this.episode,
-        this.url,
-        this.created});
+      this.name,
+      this.status,
+      this.species,
+      this.type,
+      this.gender,
+      this.origin,
+      this.location,
+      this.image,
+      this.episode,
+      this.url,
+      this.created});
 }

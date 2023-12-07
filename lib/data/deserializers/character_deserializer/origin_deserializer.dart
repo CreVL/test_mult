@@ -1,4 +1,3 @@
-import '../../../domain/entities/character.dart';
 import '../../../domain/entities/origin.dart';
 import '../../../internal/serializers/json_deserializer.dart';
 

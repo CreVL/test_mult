@@ -1,13 +1,12 @@
 import '../../repository/characters_repository.dart';
-import '../../../domain/entities/character.dart';
-import '../../../domain/entities/characters_mult.dart';
+import '../../../domain/entities/characters_data.dart';
 
-class GetCharactersMultUsecase {
+class GetCharactersDataUsecase {
   final CharacterRepository _repository;
 
-  const GetCharactersMultUsecase(this._repository);
+  const GetCharactersDataUsecase(this._repository);
 
-  Future<List<CharactersMult>?> call() {
+  Future<List<CharactersData>?> call() {
     return _repository.getCharacters();
   }
 }

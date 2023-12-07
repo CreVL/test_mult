@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/entities/characters_mult.dart';
-
-
+import '../../domain/entities/characters_data.dart';
 
 class CharacterListTile extends StatelessWidget {
-  CharacterListTile({Key? key, required this.character}) : super(key: key);
+  const CharacterListTile({Key? key, required this.character}) : super(key: key);
 
-  final CharactersMult? character;
+  final CharactersData? character;
 
   @override
   Widget build(BuildContext context) {
