@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/entities/character.dart';
+import '../../domain/entities/characters_mult.dart';
+
+
 
 class CharacterListTile extends StatelessWidget {
   CharacterListTile({Key? key, required this.character}) : super(key: key);
