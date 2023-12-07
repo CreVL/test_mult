@@ -1,18 +1,18 @@
 import 'package:test_mult/domain/entities/origin.dart';
 
 class CharactersMult {
-  int? id;
-  String? name;
-  String? status;
-  String? species;
-  String? type;
-  String? gender;
-  Origin? origin;
-  Origin? location;
-  String? image;
-  List<String>? episode;
-  String? url;
-  String? created;
+  final int? id;
+  final String? name;
+  final String? status;
+  final String? species;
+  final String? type;
+  final String? gender;
+  final Origin? origin;
+  final Origin? location;
+  final String? image;
+  final List<String>? episode;
+  final String? url;
+  final String? created;
 
   CharactersMult(
       {this.id,

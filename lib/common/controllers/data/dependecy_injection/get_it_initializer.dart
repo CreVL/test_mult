@@ -20,8 +20,6 @@ class GetItInitializer {
       ),
     );
 
-    _getIt.registerLazySingleton<Dio>(() => Dio());
-
     _getIt.registerLazySingleton<GetCharactersMultUsecase>(
         () => GetCharactersMultUsecase(_getIt<CharacterRepository>()));
   }
