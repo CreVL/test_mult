@@ -2,10 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:test_mult/domain/entities/characters_data.dart';
 import 'package:test_mult/internal/serializers/iterable_deserializer.dart';
-
-import '../../application/services/dio_client.dart';
 import '../../internal/serializers/json_deserializer.dart';
 import '../../application/repository/characters_repository.dart';
+import '../services/dio_client.dart';
 
 class BackendCharacterRepository implements CharacterRepository {
   final JsonDeserializer<CharactersData> charactersDataDeserializer;
