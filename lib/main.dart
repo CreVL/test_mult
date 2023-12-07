@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_mult/ui/pages/character_page/character_page.dart';
-import 'common/controllers/data/dependecy_injection/get_it_initializer.dart';
+import 'data/dependecy_injection/get_it_initializer.dart';
 
 void main() {
   appStart();

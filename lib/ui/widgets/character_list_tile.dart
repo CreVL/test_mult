@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../../domain/entities/characters_data.dart';
 
 class CharacterListTile extends StatelessWidget {
-  const CharacterListTile({Key? key, required this.character}) : super(key: key);
+  const CharacterListTile({Key? key, required this.character})
+      : super(key: key);
 
   final CharactersData? character;
 
