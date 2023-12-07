@@ -3,7 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:test_mult/ui/pages/character_page/character_page.dart';
 
 import 'application/services/dio_client.dart';
-import 'data/repositories/characters_repository.dart';
+import 'application/repository/characters_repository.dart';
 import 'common/controllers/data/dependecy_injection/get_it_initializer.dart';
 
 

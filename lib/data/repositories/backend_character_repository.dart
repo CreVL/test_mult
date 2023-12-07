@@ -5,7 +5,7 @@ import 'package:test_mult/internal/serializers/iterable_deserializer.dart';
 
 import '../../application/services/dio_client.dart';
 import '../../internal/serializers/json_deserializer.dart';
-import 'characters_repository.dart';
+import '../../application/repository/characters_repository.dart';
 
 class BackendCharacterRepository implements CharacterRepository {
   final JsonDeserializer<CharactersMult> charactersMultDeserializer;

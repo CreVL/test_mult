@@ -1,4 +1,4 @@
-import '../../../data/repositories/characters_repository.dart';
+import '../../repository/characters_repository.dart';
 import '../../../domain/entities/character.dart';
 import '../../../domain/entities/characters_mult.dart';
 

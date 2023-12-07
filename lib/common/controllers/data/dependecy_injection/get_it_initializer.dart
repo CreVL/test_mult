@@ -7,7 +7,7 @@ import '../../../../application/services/dio_client.dart';
 import '../../../../application/usecases/get_character_usecase/get_character_usecase.dart';
 
 import '../../../../data/repositories/backend_character_repository.dart';
-import '../../../../data/repositories/characters_repository.dart';
+import '../../../../application/repository/characters_repository.dart';
 
 final _getIt = GetIt.instance;
 

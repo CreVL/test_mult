@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:test_mult/application/usecases/get_character_usecase/get_character_usecase.dart';
-import 'package:test_mult/data/repositories/characters_repository.dart';
+import 'package:test_mult/application/repository/characters_repository.dart';
 
 import '../../state_managment/character_controller/character_controller.dart';
 import '../../widgets/character_list_tile.dart';
