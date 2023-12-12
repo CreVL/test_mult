@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_mult/ui/pages/character_page/character_page.dart';
+import 'package:test_mult/ui/resources/rick_and_morty_colors.dart';
 import 'data/dependecy_injection/get_it_initializer.dart';
 
 void main() {
@@ -20,17 +21,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          dividerColor: Colors.black,
-          scaffoldBackgroundColor: Colors.white10,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
-          useMaterial3: true,
-          appBarTheme: const AppBarTheme(backgroundColor: Colors.white10),
-          textTheme: const TextTheme(
-              bodyMedium: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20)),
-          listTileTheme: const ListTileThemeData(iconColor: Colors.grey)),
+        dividerColor: RickAndMortyColors.darkBlue,
+        scaffoldBackgroundColor: RickAndMortyColors.darkBlue,
+        colorScheme: ColorScheme.fromSeed(seedColor: RickAndMortyColors.darkBlue),
+        useMaterial3: true,
+        appBarTheme: const AppBarTheme(backgroundColor: RickAndMortyColors.darkBlue),
+        listTileTheme: const ListTileThemeData(iconColor: Colors.grey),
+      ),
       home: const CharacterPage(title: 'Rick and Morty'),
     );
   }
