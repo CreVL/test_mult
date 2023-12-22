@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_mult/ui/pages/character_page/character_page.dart';
+import 'package:test_mult/routes/route_config.dart';
 import 'package:test_mult/ui/resources/rick_and_morty_colors.dart';
 import 'data/dependecy_injection/get_it_initializer.dart';
 
@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: RouteConfig.returnRouter(),
       title: 'Flutter Demo',
       theme: ThemeData(
         dividerColor: RickAndMortyColors.darkBlue,
@@ -28,7 +29,6 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(backgroundColor: RickAndMortyColors.darkBlue),
         listTileTheme: const ListTileThemeData(iconColor: Colors.grey),
       ),
-      home: const CharacterPage(title: 'Rick and Morty'),
     );
   }
 }
