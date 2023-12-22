@@ -17,7 +17,11 @@ class CharacterListTile extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
-      child: GestureDetector(
+      child: InkWell(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(37.0),
+          bottomLeft: Radius.circular(37.0),
+        ),
         onTap: (){
           context.goNamed(RouteNames.viewPage,extra: character );
         },
