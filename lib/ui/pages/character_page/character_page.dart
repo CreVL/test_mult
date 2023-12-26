@@ -49,12 +49,13 @@ class CharacterPage extends HookWidget {
                 return Padding(
                   padding: const EdgeInsets.only(left: 16),
                   child: CharacterListTile(
-                    character: character, onTap: () {  },
+                    character: character,
+                    onTap: () {},
                   ),
                 );
               },
               separatorBuilder: (context, index) {
-                return const Divider(height: 1);
+                return const Divider(height: 2, color:  RickAndMortyColors.dividerBlue,);
               },
             );
           }

@@ -6,7 +6,8 @@ import 'package:test_mult/ui/resources/rick_and_morty_colors.dart';
 import '../../domain/entities/characters_data.dart';
 
 class CharacterListTile extends StatelessWidget {
-  const CharacterListTile({Key? key, required this.character, required this.onTap})
+  const CharacterListTile(
+      {Key? key, required this.character, required this.onTap})
       : super(key: key);
 
   final CharactersData? character;
@@ -14,7 +15,6 @@ class CharacterListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: InkWell(
@@ -22,8 +22,8 @@ class CharacterListTile extends StatelessWidget {
           topLeft: Radius.circular(37.0),
           bottomLeft: Radius.circular(37.0),
         ),
-        onTap: (){
-          context.goNamed(RouteNames.viewPage,extra: character );
+        onTap: () {
+          context.goNamed(RouteNames.viewPage, extra: character);
         },
         child: Row(
           children: [

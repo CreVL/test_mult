@@ -24,9 +24,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         dividerColor: RickAndMortyColors.darkBlue,
         scaffoldBackgroundColor: RickAndMortyColors.darkBlue,
-        colorScheme: ColorScheme.fromSeed(seedColor: RickAndMortyColors.darkBlue),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: RickAndMortyColors.darkBlue),
         useMaterial3: true,
-        appBarTheme: const AppBarTheme(backgroundColor: RickAndMortyColors.darkBlue),
+        appBarTheme:
+            const AppBarTheme(backgroundColor: RickAndMortyColors.darkBlue),
         listTileTheme: const ListTileThemeData(iconColor: Colors.grey),
       ),
     );
