@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test_mult/routes/route_name.dart';
 import '../domain/entities/character.dart';
+import '../domain/entities/character_episode.dart';
 import '../domain/entities/characters_data.dart';
 import '../ui/pages/character_page/character_page.dart';
 import '../ui/pages/character_view_page/character_view_page.dart';

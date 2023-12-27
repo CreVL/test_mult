@@ -6,6 +6,7 @@ import 'package:test_mult/application/usecases/get_character_usecase/get_charact
 import 'package:test_mult/application/repository/characters_repository.dart';
 import 'package:test_mult/ui/resources/rick_and_morty_colors.dart';
 
+import '../../../application/usecases/get_episode_by_id/get_episode_by_id.dart';
 import '../../state_managment/character_controller/character_controller.dart';
 import '../../widgets/character_list_tile.dart';
 
@@ -21,11 +22,15 @@ class CharacterPage extends HookWidget {
         GetCharactersDataUsecase(
           GetIt.I<CharacterRepository>(),
         ),
+        GetCharacterEpisodeUsecase(
+          GetIt.I<CharacterRepository>(),
+        ),
       ),
     );
 
     useEffect(() {
       controller.getCharacter();
+
       return null;
     });
 
@@ -55,7 +60,10 @@ class CharacterPage extends HookWidget {
                 );
               },
               separatorBuilder: (context, index) {
-                return const Divider(height: 2, color:  RickAndMortyColors.dividerBlue,);
+                return const Divider(
+                  height: 2,
+                  color: RickAndMortyColors.dividerBlue,
+                );
               },
             );
           }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test_mult/ui/resources/rick_and_morty_colors.dart';
 
 import '../../../domain/entities/characters_data.dart';
 
-class CharacterViewPage extends StatelessWidget {
+class CharacterViewPage extends HookWidget {
   const CharacterViewPage({
     super.key,
     required this.characterData,
@@ -12,8 +13,11 @@ class CharacterViewPage extends StatelessWidget {
 
   final CharactersData characterData;
 
+
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -204,7 +208,23 @@ class CharacterViewPage extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (context, index) =>
-                        Text(characterData.episode?[index] ?? ''),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '',
+                              style: TextStyle(
+                                color: Color(0xDD22A2BD),
+                                fontSize: 10,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.w500,
+                                height: 0.16,
+                                letterSpacing: 1.50,
+                              ),
+                            ),
+                            Text(characterData.episode?[index] ?? ''),
+                          ],
+                        ),
                     itemCount: characterData.episode?.length,
                   ),
                 ],
@@ -225,8 +245,11 @@ class CharacterViewPage extends StatelessWidget {
               ),
             ),
           ],
+
         ),
+
       ),
+
     );
   }
 }

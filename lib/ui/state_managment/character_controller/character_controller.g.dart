@@ -25,6 +25,22 @@ mixin _$CharacterController on CharacterControllerBase, Store {
     });
   }
 
+  late final _$episodeAtom =
+      Atom(name: 'CharacterControllerBase.episode', context: context);
+
+  @override
+  List<CharacterEpisode>? get episode {
+    _$episodeAtom.reportRead();
+    return super.episode;
+  }
+
+  @override
+  set episode(List<CharacterEpisode>? value) {
+    _$episodeAtom.reportWrite(value, super.episode, () {
+      super.episode = value;
+    });
+  }
+
   late final _$isLoadingAtom =
       Atom(name: 'CharacterControllerBase.isLoading', context: context);
 
@@ -49,10 +65,19 @@ mixin _$CharacterController on CharacterControllerBase, Store {
     return _$getCharacterAsyncAction.run(() => super.getCharacter());
   }
 
+  late final _$getEpisodeAsyncAction =
+      AsyncAction('CharacterControllerBase.getEpisode', context: context);
+
+  @override
+  Future<void> getEpisode(int characterId) {
+    return _$getEpisodeAsyncAction.run(() => super.getEpisode(characterId));
+  }
+
   @override
   String toString() {
     return '''
 character: ${character},
+episode: ${episode},
 isLoading: ${isLoading}
     ''';
   }
