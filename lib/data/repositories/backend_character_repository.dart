@@ -44,7 +44,9 @@ class BackendCharacterRepository implements CharacterRepository {
   @override
   Future<List<CharacterEpisode>?> getEpisode(int characterId) async {
     try {
-      final Response response = await dio.get('episode/');
+      final Response response = await dio.get('episode/', queryParameters: {
+        'character': characterId,
+      });
 
       if (response.statusCode == 200) {
         if (response.data.containsKey('results')) {

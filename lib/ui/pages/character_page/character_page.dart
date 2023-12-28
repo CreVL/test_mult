@@ -30,7 +30,6 @@ class CharacterPage extends HookWidget {
 
     useEffect(() {
       controller.getCharacter();
-
       return null;
     });
 
